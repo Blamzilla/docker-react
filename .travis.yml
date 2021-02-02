@@ -4,9 +4,8 @@ sudo: required
 services:
   - docker
 before_install:
-  commands:
-    - echo Logging in to Docker Hub...
-    - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+  - echo Logging in to Docker Hub...
+  - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
   - docker build -t blamzilla/docker-react -f Dockerfile.dev .
 
 script:
