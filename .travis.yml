@@ -1,8 +1,13 @@
 language: generic
 sudo: required
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+
 services:
   - docker
-
 before_install:
   - docker build -t blamzilla/docker-react -f Dockerfile.dev .
 
