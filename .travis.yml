@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t Blamzilla/docker-react -f Dockerfile.dev .
+  - docker build -t blamzilla/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true Blamzilla/docker-react npm run test
+  - docker run -e CI=true blamzilla/docker-react npm run test
